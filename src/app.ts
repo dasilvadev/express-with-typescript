@@ -33,6 +33,15 @@ app.get('/interfaces', (req: Request, res: Response) => {
     return res.send("Using interfaces.");
 });
 
+app.get('/json', (req: Request, res: Response) => {
+    return res.json({
+        name: "Shirt",
+        price: 30.0,
+        color: "Blue",
+        size: ["P", "M", "G"]
+    });
+});
+
 app.listen(serverPort, () => {
     console.log(`Server running on port ${serverPort}.`);
 });
