@@ -42,6 +42,24 @@ app.get('/json', (req: Request, res: Response) => {
     });
 });
 
+app.get('/products/:id', (req: Request, res: Response) => {
+    const id = req.params.id;
+
+    if (id === "1") {
+        const product = {
+            id: 1,
+            name: "Shirt",
+            price: 10
+        };
+
+        return res.json(product);
+    }
+
+    return res.status(404).json({
+        message: "Product not found."
+    });
+});
+
 app.listen(serverPort, () => {
     console.log(`Server running on port ${serverPort}.`);
 });
