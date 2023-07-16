@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 
 const app = express();
 const serverPort = 3000; 
@@ -28,6 +28,10 @@ app.all('/products/check', (req, res) => {
 
     return res.status(404).send("Not found!");
 })
+
+app.get('/interfaces', (req: Request, res: Response) => {
+    return res.send("Using interfaces.");
+});
 
 app.listen(serverPort, () => {
     console.log(`Server running on port ${serverPort}.`);
